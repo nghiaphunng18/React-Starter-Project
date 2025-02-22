@@ -1,14 +1,20 @@
 const TodoData = (props) => {
-  console.log(">>> check props: ", props);
-  const { data } = props;
-  console.log("check data: ", data);
+  // console.log(">>> check props: ", props);
+  // const { data } = props;
+  // console.log("check data: ", data);
+
+  const { todoList } = props;
 
   return (
     <div className="todo-data">
-      <div>My nam is {props.name}</div>
-      <div>Learning React</div>
-      <div>Watching Youtube</div>
-      <div>{JSON.stringify(props.todoList)}</div>
+      {todoList.map((item, index) => {
+        return (
+          <div className="todo-item" key={item.id}>
+            <div>{item.name}</div>
+            <button>Delete</button>
+          </div>
+        );
+      })}
     </div>
   );
 };

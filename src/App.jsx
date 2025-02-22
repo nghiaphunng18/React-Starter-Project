@@ -1,20 +1,31 @@
-import logo from "./logo.svg";
-import "./App.css";
-// import React, { useState } from "react";
-import MyComponent from "./components/learn/MyComponent";
-import SecondComponent from "./components/learn/SecondComponent";
+import "./components/todo/todo.css";
+import TodoData from "./components/todo/TodoData.jsx";
+import TodoNew from "./components/todo/TodoNew";
+import reactLogo from "./assets/react-2.svg";
 
 const App = () => {
-  // const [count, setCount] = useState(0);
+  const userName = "nghiaphunng";
+  const userAge = 21;
+  const data = {
+    address: "Ha Noi",
+    country: "Viet Nam",
+  };
+
+  const addNewTodo = (name) => {
+    alert(`call me ${name}`);
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello World</h1>
-        <MyComponent />
-        <SecondComponent />
-      </header>
+    <div className="todo-container">
+      <div className="todo-title">Todo List</div>
+
+      <TodoNew addNewTodo={addNewTodo} />
+
+      <TodoData name={userName} age={userAge} data={data} />
+
+      <div className="todo-image">
+        <img src={reactLogo} alt="error" className="logo" />
+      </div>
     </div>
   );
 };

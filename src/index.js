@@ -9,11 +9,26 @@ import UserPage from "./pages/user";
 import ProductPage from "./pages/product";
 
 import "./styles/global.css";
+import TodoApp from "./components/todo/TodoApp";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        index: true,
+        element: <TodoApp />,
+      },
+      {
+        path: "/users",
+        element: <UserPage />,
+      },
+      {
+        path: "/products",
+        element: <ProductPage />,
+      },
+    ],
   },
   {
     path: "/login",
@@ -22,14 +37,6 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
-  },
-  {
-    path: "/users",
-    element: <UserPage />,
-  },
-  {
-    path: "/products",
-    element: <ProductPage />,
   },
 ]);
 

@@ -1,6 +1,8 @@
 import { Table } from "antd";
 
+console.log("render out component UserTable");
 const UserTable = (props) => {
+  console.log("render in component UserTable");
   const columns = [
     {
       title: "Id",

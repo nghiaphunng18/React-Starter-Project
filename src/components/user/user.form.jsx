@@ -2,7 +2,9 @@ import { Button, Input, Modal, notification } from "antd";
 import { useState } from "react";
 import { createUserAPI } from "../../services/api.service";
 
+console.log("render out component UserForm");
 const UserForm = (props) => {
+  console.log("render in component UserForm");
   const { loadUser } = props;
   const [fullName, setFullName] = useState("user");
   const [email, setEmail] = useState("user@gmail.com");
@@ -30,6 +32,7 @@ const UserForm = (props) => {
   };
 
   const resetAndCloseModal = () => {
+    console.log("render when resetAndCloseModal");
     setIsModalOpen(false);
     setFullName("user");
     setEmail("user@gmail.com");

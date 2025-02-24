@@ -3,7 +3,9 @@ import UserForm from "../components/user/user.form";
 import UserTable from "../components/user/user.table";
 import { fetchAllUserAPI } from "../services/api.service";
 
+console.log("render out component UserPage");
 const UserPage = () => {
+  console.log("render in component UserPage");
   const [dataUsers, setDataUsers] = useState([]);
 
   //empty array => run once

@@ -23,7 +23,7 @@ const deleteUserAPI = (id) => {
 };
 
 const registerUserAPI = (fullname, email, password, phone) => {
-  const URL_BACKEND = `v1/api/users/regiser`;
+  const URL_BACKEND = `/v1/api/users/regiser`;
   const data = {
     fullname,
     email,
@@ -34,10 +34,27 @@ const registerUserAPI = (fullname, email, password, phone) => {
   return axios.post(URL_BACKEND, data);
 };
 
+const loginAPI = (email, password) => {
+  const URL_BACKEND = `/v1/api/auth/login`;
+  const data = {
+    email,
+    password,
+  };
+
+  return axios.post(URL_BACKEND, data);
+};
+
+const getAccountAPI = () => {
+  const URL_BACKEND = "/v1/api/auth/account";
+  return axios.get(URL_BACKEND);
+};
+
 export {
   createUserAPI,
   fetchAllUserAPI,
   updateUserAPI,
   deleteUserAPI,
   registerUserAPI,
+  loginAPI,
+  getAccountAPI,
 };

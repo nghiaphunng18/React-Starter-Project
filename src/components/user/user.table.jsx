@@ -3,7 +3,6 @@ import { notification, Popconfirm, Table } from "antd";
 import UpdateUserModal from "./update.user.modal";
 import { useState } from "react";
 import ViewUserDetail from "./view.user.detail";
-import { render } from "@testing-library/react";
 import { deleteUserAPI } from "../../services/api.service";
 
 console.log("render out component UserTable");
@@ -22,6 +21,7 @@ const UserTable = (props) => {
       dataIndex: "_id",
       render: (_, record) => {
         return (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
             href="#"
             onClick={() => {

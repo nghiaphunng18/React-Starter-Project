@@ -5,6 +5,7 @@ const ViewUserDetail = (props) => {
 
   return (
     <Drawer
+      width={"40vw"}
       title="Chi tiet user"
       onClose={() => {
         setDataDetail(null);
@@ -21,6 +22,15 @@ const ViewUserDetail = (props) => {
           <p>Email: {dataDetail.email}</p>
           <br />
           <p>City: {dataDetail.city}</p>
+          <div>
+            const imageUrl = `${process.env.REACT_APP_FE_BASE_URL}/logo512.png`
+            <img
+              height={250}
+              width={300}
+              src={`${process.env.REACT_APP_FE_BASE_URL}/logo512.png`}
+              alt="logo"
+            />
+          </div>
         </>
       ) : (
         <>

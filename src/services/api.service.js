@@ -22,4 +22,22 @@ const deleteUserAPI = (id) => {
   return axios.delete(URL_BACKEND);
 };
 
-export { createUserAPI, fetchAllUserAPI, updateUserAPI, deleteUserAPI };
+const registerUserAPI = (fullname, email, password, phone) => {
+  const URL_BACKEND = `v1/api/users/regiser`;
+  const data = {
+    fullname,
+    email,
+    password,
+    phone,
+  };
+
+  return axios.post(URL_BACKEND, data);
+};
+
+export {
+  createUserAPI,
+  fetchAllUserAPI,
+  updateUserAPI,
+  deleteUserAPI,
+  registerUserAPI,
+};

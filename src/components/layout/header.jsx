@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 // import "./header.css";
 
 import {
@@ -8,7 +8,7 @@ import {
   LoginOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Menu, message } from "antd";
 import { AuthContext } from "../context/auth.context";
 import { logoutAPI } from "../../services/api.service";
@@ -16,9 +16,24 @@ import { logoutAPI } from "../../services/api.service";
 const Header = () => {
   const navigate = useNavigate();
   const [current, setCurrent] = useState("");
+  const location = useLocation();
 
   const { user, setUser } = useContext(AuthContext);
   console.log("check data user login: ", user);
+
+  useEffect(() => {
+    if (location && location.pathname) {
+      const allRoutes = ["users", "books"];
+      const currentRoute = allRoutes.find(
+        (item) => `/${item}` === location.pathname
+      );
+      if (currentRoute) {
+        setCurrent(currentRoute);
+      } else {
+        setCurrent("home");
+      }
+    }
+  }, [location]);
 
   const onClickBtn = (e) => {
     setCurrent(e.key);
@@ -103,7 +118,7 @@ const Header = () => {
   return (
     <Menu
       onClick={onClickBtn}
-      selectedKeys={{ current }}
+      selectedKeys={[current]}
       mode="horizontal"
       items={items}
     ></Menu>
